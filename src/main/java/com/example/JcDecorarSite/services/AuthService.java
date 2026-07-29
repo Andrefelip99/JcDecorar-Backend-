@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.JcDecorarSite.dto.request.UserRequestDTO;
 import com.example.JcDecorarSite.dto.response.LoginResponseDTO;
-import com.example.JcDecorarSite.dto.response.UserResponseDTO;
 import com.example.JcDecorarSite.repository.UserRepository;
 
 @Service
