@@ -36,6 +36,7 @@ public class SecurityConfig {
                         // Login liberado
                         .requestMatchers("/auth/**")
                         .permitAll()
+                        .requestMatchers("/upload").permitAll()
 
                         // Visualização dos projetos liberada
                         .requestMatchers(
