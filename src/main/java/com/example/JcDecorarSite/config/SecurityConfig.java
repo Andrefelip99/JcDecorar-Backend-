@@ -42,7 +42,7 @@ public class SecurityConfig {
                         // Login liberado
                         .requestMatchers("/auth/**")
                         .permitAll()
-                        .requestMatchers("/upload").permitAll()
+                        .requestMatchers("/upload").hasRole("ADMIN")
 
                         // Visualização dos projetos liberada
                         .requestMatchers(
