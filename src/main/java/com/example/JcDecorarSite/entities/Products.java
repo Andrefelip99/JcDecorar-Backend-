@@ -20,7 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "tb_produto")
-public class Projects {
+public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,4 +29,4 @@ public class Projects {
     private String imageUrl;
     private LocalDateTime createdAt;
 
-}
+} 

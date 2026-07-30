@@ -1,16 +1,16 @@
 package com.example.JcDecorarSite.dto.response;
 
-import com.example.JcDecorarSite.entities.Projects;
+import com.example.JcDecorarSite.entities.Products;
 
-public record ProjectsResponseDTO(
+public record ProductsResponseDTO(
         long id,
         String title,
         String description,
-        String imagUrl
+        String imageUrl
 
 ) {
 
-    public ProjectsResponseDTO(Projects entity) {
+    public ProductsResponseDTO(Products entity) {
         this(
                 entity.getId(),
                 entity.getTitle(),
@@ -18,4 +18,4 @@ public record ProjectsResponseDTO(
                 entity.getImageUrl());
     }
 
-}
+} 

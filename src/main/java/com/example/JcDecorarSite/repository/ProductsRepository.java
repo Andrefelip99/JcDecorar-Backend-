@@ -3,9 +3,9 @@ package com.example.JcDecorarSite.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.JcDecorarSite.entities.Projects;
+import com.example.JcDecorarSite.entities.Products;
 
 @Repository
-public interface ProjectsRepository extends JpaRepository<Projects, Long> {
+public interface ProductsRepository extends JpaRepository<Products, Long> {
 
 }
