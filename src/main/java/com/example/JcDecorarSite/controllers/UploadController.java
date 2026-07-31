@@ -1,5 +1,7 @@
 package com.example.JcDecorarSite.controllers;
 
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,8 +45,9 @@ public class UploadController {
 
        
 
-   
-    @PostMapping(consumes = "multipart/form-data")
+
+
+    @PostMapping
     public ResponseEntity<?> upload(
             @RequestParam("file") MultipartFile file) {
 
@@ -55,15 +58,12 @@ public class UploadController {
         System.out.println("TIPO: " + file.getContentType());
 
 
-        if (file.isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body("Arquivo vazio");
-        }
+        String imageUrl =
+                cloudinaryService.uploadImage(file);
 
 
-        String url = cloudinaryService.uploadImage(file);
-
-
-        return ResponseEntity.ok(url);
+        return ResponseEntity.ok(
+                Map.of("url", imageUrl)
+        );
     }
 }
