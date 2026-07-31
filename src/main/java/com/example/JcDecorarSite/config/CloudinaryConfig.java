@@ -21,7 +21,7 @@ public class CloudinaryConfig {
     @Value("${cloudinary.api-secret}")
     private String apiSecret;
 
-
+/* 
     @Bean
     public Cloudinary cloudinary() {
 
@@ -32,5 +32,21 @@ public class CloudinaryConfig {
         config.put("api_secret", apiSecret);
 
         return new Cloudinary(config);
-    }
+    }/* */
+
+    @Bean
+public Cloudinary cloudinary() {
+
+    System.out.println("CLOUD NAME: " + cloudName);
+    System.out.println("API KEY: " + apiKey);
+    System.out.println("API SECRET EXISTE: " + (apiSecret != null));
+
+    Map<String, String> config = new HashMap<>();
+
+    config.put("cloud_name", cloudName);
+    config.put("api_key", apiKey);
+    config.put("api_secret", apiSecret);
+
+    return new Cloudinary(config);
+}
 }

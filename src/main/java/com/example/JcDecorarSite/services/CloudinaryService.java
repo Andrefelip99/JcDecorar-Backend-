@@ -1,6 +1,5 @@
 package com.example.JcDecorarSite.services;
 
-import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -23,25 +22,19 @@ public class CloudinaryService {
 
     public String uploadImage(MultipartFile file) {
 
-        try {
+         try {
 
-            Map uploadResult = cloudinary.uploader()
-                    .upload(
-                            file.getBytes(),
-                            ObjectUtils.emptyMap()
-                    );
+        Map uploadResult = cloudinary.uploader()
+                .upload(file.getBytes(), ObjectUtils.emptyMap());
 
+        return uploadResult.get("secure_url").toString();
 
-            return uploadResult
-                    .get("secure_url")
-                    .toString();
+    } catch (Exception e) {
 
+        e.printStackTrace();
 
-        } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
 
-            throw new RuntimeException(
-                    "Erro ao enviar imagem para Cloudinary"
-            );
         }
     }
-}
