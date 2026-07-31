@@ -13,24 +13,41 @@ import com.example.JcDecorarSite.services.CloudinaryService;
 @RequestMapping("/upload")
 public class UploadController {
 
+
     private final CloudinaryService cloudinaryService;
+
 
     public UploadController(CloudinaryService cloudinaryService) {
         this.cloudinaryService = cloudinaryService;
     }
 
+
     @PostMapping
     public ResponseEntity<?> upload(
             @RequestParam("file") MultipartFile file
-    ){
+    ) {
 
-        System.out.println("========= ENTROU CONTROLLER =========");
+        System.out.println("========= ENTROU CONTROLLER UPLOAD =========");
+
         System.out.println("Arquivo: " + file.getOriginalFilename());
+        System.out.println("Tipo: " + file.getContentType());
+        System.out.println("Tamanho: " + file.getSize());
+
 
         String url = cloudinaryService.uploadImage(file);
 
-        System.out.println("URL CLOUDINARY: " + url);
 
-        return ResponseEntity.ok(url);
+        System.out.println("URL FINAL CLOUDINARY:");
+        System.out.println(url);
+
+
+        return ResponseEntity.ok(
+                new UploadResponse(url)
+        );
     }
+
+
+    public record UploadResponse(
+            String imageUrl
+    ) {}
 }
