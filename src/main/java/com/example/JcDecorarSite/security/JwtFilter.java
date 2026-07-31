@@ -42,7 +42,7 @@ protected void doFilterInternal(
 
     String authHeader = request.getHeader("Authorization");
 
-    System.out.println("HEADER: " + authHeader);
+   System.out.println("AUTHORIZATION CHEGOU: [" + authHeader + "]");
 
 
     if (authHeader == null || !authHeader.startsWith("Bearer ")) {
