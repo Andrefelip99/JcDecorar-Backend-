@@ -33,12 +33,5 @@ public class Products {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    public void setTitle(String title) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void setImageUrl(String imageUrl) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
 }
