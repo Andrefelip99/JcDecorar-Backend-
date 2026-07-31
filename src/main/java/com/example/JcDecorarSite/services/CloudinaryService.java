@@ -22,19 +22,37 @@ public class CloudinaryService {
 
     public String uploadImage(MultipartFile file) {
 
-         try {
+        try {
 
-        Map uploadResult = cloudinary.uploader()
-                .upload(file.getBytes(), ObjectUtils.emptyMap());
+            System.out.println("===== CLOUDINARY UPLOAD =====");
+            System.out.println("Arquivo: " + file.getOriginalFilename());
+            System.out.println("Tamanho: " + file.getSize());
+            System.out.println("Tipo: " + file.getContentType());
 
-        return uploadResult.get("secure_url").toString();
 
-    } catch (Exception e) {
+            Map uploadResult = cloudinary.uploader()
+                    .upload(
+                            file.getBytes(),
+                            ObjectUtils.emptyMap()
+                    );
 
-        e.printStackTrace();
 
-        throw new RuntimeException(e.getMessage());
-    }
+            System.out.println("UPLOAD OK");
+            System.out.println(uploadResult);
 
+
+            return uploadResult
+                    .get("secure_url")
+                    .toString();
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            throw new RuntimeException(
+                    "Erro Cloudinary: " + e.getMessage()
+            );
         }
     }
+}
