@@ -23,7 +23,7 @@ public class UploadController {
     }
 
 
-
+/* 
     @PostMapping
     public ResponseEntity<Map<String, String>> upload(
             @RequestParam("file") MultipartFile file) {
@@ -38,6 +38,19 @@ public class UploadController {
                     "url",
                     imageUrl
                 )
-        );
+        );/* */
+
+        @PostMapping
+public ResponseEntity<String> upload(
+        @RequestParam(value = "file", required = false) MultipartFile file) {
+
+    if (file == null) {
+        return ResponseEntity.badRequest()
+                .body("Arquivo não chegou");
     }
+
+    return ResponseEntity.ok(
+            "Chegou: " + file.getOriginalFilename()
+    );
 }
+    }
