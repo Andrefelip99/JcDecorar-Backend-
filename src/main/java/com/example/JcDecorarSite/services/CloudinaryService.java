@@ -33,7 +33,7 @@ public class CloudinaryService {
 
         e.printStackTrace();
 
-        throw new RuntimeException(e);
+        throw new RuntimeException(e.getMessage());
     }
 
         }
