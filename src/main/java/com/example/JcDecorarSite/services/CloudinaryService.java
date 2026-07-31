@@ -11,9 +11,7 @@ import com.cloudinary.utils.ObjectUtils;
 @Service
 public class CloudinaryService {
 
-
     private final Cloudinary cloudinary;
-
 
     public CloudinaryService(Cloudinary cloudinary) {
         this.cloudinary = cloudinary;
@@ -25,9 +23,13 @@ public class CloudinaryService {
         try {
 
             System.out.println("===== CLOUDINARY UPLOAD =====");
+
             System.out.println("Arquivo: " + file.getOriginalFilename());
             System.out.println("Tamanho: " + file.getSize());
             System.out.println("Tipo: " + file.getContentType());
+
+
+            System.out.println("ANTES DO CLOUDINARY");
 
 
             Map uploadResult = cloudinary.uploader()
@@ -37,18 +39,29 @@ public class CloudinaryService {
                     );
 
 
-            System.out.println("UPLOAD OK");
+            System.out.println("DEPOIS DO CLOUDINARY");
+
             System.out.println(uploadResult);
 
 
-            return uploadResult
+            String url = uploadResult
                     .get("secure_url")
                     .toString();
 
 
+            System.out.println("URL GERADA:");
+            System.out.println(url);
+
+
+            return url;
+
+
         } catch (Exception e) {
 
+            System.out.println("ERRO NO CLOUDINARY");
+
             e.printStackTrace();
+
 
             throw new RuntimeException(
                     "Erro Cloudinary: " + e.getMessage()
