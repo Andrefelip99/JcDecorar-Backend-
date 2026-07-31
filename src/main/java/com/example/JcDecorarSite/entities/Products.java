@@ -2,6 +2,8 @@ package com.example.JcDecorarSite.entities;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +29,16 @@ public class Products {
     private String title;
     private String description;
     private String imageUrl;
+    
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
-} 
+    public void setTitle(String title) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void setImageUrl(String imageUrl) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+}
