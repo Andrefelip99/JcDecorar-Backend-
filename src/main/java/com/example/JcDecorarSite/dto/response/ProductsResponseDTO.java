@@ -6,7 +6,8 @@ public record ProductsResponseDTO(
         long id,
         String title,
         String description,
-        String imageUrl
+        String beforeImageUrl,
+        String afterImageUrl
 
 ) {
 
@@ -15,7 +16,8 @@ public record ProductsResponseDTO(
                 entity.getId(),
                 entity.getTitle(),
                 entity.getDescription(),
-                entity.getImageUrl());
+                entity.getBeforeImageUrl(),
+                entity.getAfterImageUrl());
     }
 
 } 

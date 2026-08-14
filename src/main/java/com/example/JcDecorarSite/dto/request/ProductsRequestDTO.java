@@ -13,7 +13,10 @@ public record ProductsRequestDTO(
     @NotBlank(message = "O campo description não pode estar em branco")
     String description,
 
-    @NotBlank(message = "O campo imageUrl não pode estar em branco")
-    String imageUrl
+    @NotBlank(message = "O campo beforeImageUrl não pode estar em branco")
+    String beforeImageUrl,
+
+    @NotBlank(message = "O campo afterImageUrl não pode estar em branco")
+    String afterImageUrl
 
 ) {}

@@ -28,7 +28,8 @@ public class Products {
     private Long id;
     private String title;
     private String description;
-    private String imageUrl;
+    private String beforeImageUrl;
+    private String afterImageUrl;
     
     @CreationTimestamp
     private LocalDateTime createdAt;

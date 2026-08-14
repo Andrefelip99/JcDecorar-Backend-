@@ -41,7 +41,8 @@ public class ProductsService {
 
         entity.setTitle(dto.title());
         entity.setDescription(dto.description());
-        entity.setImageUrl(dto.imageUrl());
+        entity.setBeforeImageUrl(dto.beforeImageUrl());
+        entity.setAfterImageUrl(dto.afterImageUrl());
 
         entity = productsRepository.save(entity);
 
@@ -56,7 +57,8 @@ public class ProductsService {
 
         entity.setTitle(dto.title());
         entity.setDescription(dto.description());
-        entity.setImageUrl(dto.imageUrl());
+        entity.setBeforeImageUrl(dto.beforeImageUrl());
+        entity.setAfterImageUrl(dto.afterImageUrl());
 
         entity = productsRepository.save(entity);
 
@@ -87,8 +89,12 @@ public class ProductsService {
             throw new BusinessException("A descrição do projeto é obrigatória.");
         }
 
-        if (dto.imageUrl() == null || dto.imageUrl().isBlank()) {
-            throw new BusinessException("A URL da imagem é obrigatória.");
+        if (dto.beforeImageUrl() == null || dto.beforeImageUrl().isBlank()) {
+            throw new BusinessException("A URL da imagem de antes é obrigatória.");
+        }
+
+        if (dto.afterImageUrl() == null || dto.afterImageUrl().isBlank()) {
+            throw new BusinessException("A URL da imagem de depois é obrigatória.");
         }
     }
 }
